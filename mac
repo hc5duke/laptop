@@ -32,17 +32,23 @@ echo "Installing tmux, a good way to save project state and switch between proje
 echo "Installing ImageMagick, good for cropping and re-sizing images ..."
   brew install imagemagick
 
+echo "Creating LaunchAgents directory"
+  mkdir -p ~/Library/LaunchAgents
+
 echo "Installing Memcached ..."
   brew install memcached
-  mkdir -p ~/Library/LaunchAgents
   cp /usr/local/Cellar/memcached/1.4.13/homebrew.mxcl.memcached.plist ~/Library/LaunchAgents/
   launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
 
 echo "Installing Mysql ..."
   brew install mysql
-  mkdir -p ~/Library/LaunchAgents
   cp /usr/local/Cellar/mysql/5.5.20/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
   launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+
+echo "Installing Mongo ..."
+  brew install mongo
+  cp /usr/local/Cellar/mongodb/2.0.4-x86_64/homebrew.mxcl.mongodb.plist ~/Library/LaunchAgents/
+  launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
 echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
   brew install qt
