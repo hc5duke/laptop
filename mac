@@ -66,5 +66,9 @@ echo "Installing RVM (Ruby Version Manager) ..."
 [[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.zshrc
   source ~/.zshrc
 
+echo "Hide Documents & show Liberry ..."
+  chflags hidden ~/Documents/
+  chflags nohidden ~/Library/
+
 bash < <(curl -s https://raw.github.com/hc5duke/laptop/master/ruby)
 bash < <(curl -s https://raw.github.com/hc5duke/laptop/master/heroku)
