@@ -17,8 +17,13 @@ echo "Put Homebrew location earlier in PATH ..."
 export PATH='/usr/local/bin:$PATH'" >> ~/.zshrc
   source ~/.zshrc
 
+echo "Creating LaunchAgents directory"
+  mkdir -p ~/Library/LaunchAgents
+
 echo "Installing Postgres, a good open source relational database ..."
   brew install postgres --no-python
+  cp /usr/local/Cellar/postgresql/9.1.3/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+  launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
 echo "Installing Redis, a good key-value database ..."
   brew install redis
@@ -31,9 +36,6 @@ echo "Installing tmux, a good way to save project state and switch between proje
 
 echo "Installing ImageMagick, good for cropping and re-sizing images ..."
   brew install imagemagick
-
-echo "Creating LaunchAgents directory"
-  mkdir -p ~/Library/LaunchAgents
 
 echo "Installing Memcached ..."
   brew install memcached
